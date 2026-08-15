@@ -29,9 +29,9 @@ end)
 local ProtectGui = protectgui or (syn and syn.protect_gui) or function(f) end
 
 local Themes = {
-	Names = {"SynioxHub"},
-	SynioxHub = {
-		Name = "SynioxHub",
+	Names = {"ParadoxHubX"},
+	ParadoxHubX = {
+		Name = "ParadoxHubX",
 		Accent = Color3.fromRGB(160, 0, 0),
 		AcrylicMain = Color3.fromRGB(20, 20, 20),
 		AcrylicBorder = Color3.fromRGB(40, 40, 40), 
