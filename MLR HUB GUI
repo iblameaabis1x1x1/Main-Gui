@@ -1,0 +1,63 @@
+
+local Library = loadstring(game:HttpGetAsync("https://github.com/ActualMasterOogway/Fluent-Renewed/releases/latest/download/Fluent.luau"))()
+local SaveManager = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/ActualMasterOogway/Fluent-Renewed/master/Addons/SaveManager.luau"))()
+local InterfaceManager = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/ActualMasterOogway/Fluent-Renewed/master/Addons/InterfaceManager.luau"))()
+local v, t, o, da = 'V3', 'Tomorrow Night Blue', 'valtroxqdev', 'https://discord.gg/6wrBT3umBd'
+local Window = Library:CreateWindow{
+    Title = "MLR HUB || " .. v,
+    SubTitle = "by " .. o,
+    TabWidth = 160,
+    Size = UDim2.fromOffset(830, 525),
+    Resize = true,
+    MinSize = Vector2.new(470, 380),
+    Acrylic = true,
+    Theme = t,
+    MinimizeKey = Enum.KeyCode.RightControl
+}
+local Tabs = {
+    Info = Window:CreateTab{
+        Title = "Info",
+        Icon = "info"
+    },
+    Main = Window:CreateTab{
+        Title = "Main",
+        Icon = "menu"
+    },
+    Settings = Window:CreateTab{
+        Title = "Settings",
+        Icon = "settings"
+    }
+}
+
+local Options = Library.Options
+Tabs.Info:CreateSection('Discord')
+local d = loadstring(game:HttpGet('https://obscuravm.com/r/b1c5002000be8a62b9bb015e8a5985fc/discord-link-mlr'))()
+Tabs.Info:CreateButton{
+  Title = 'Copy Discord Invite',
+  Description = 'This will copy MLR Hub link to uour clipboard',
+  Callback = function()
+    setclipboard(d)
+  end
+}
+Tabs.Info:CreateSection('Credits')
+Tabs.Info:CreateParagraph("OwnerScriptParagraph", {
+    Title = "Owner",
+    Content = "The owner of this script is\nvaltroxqdev"
+})
+Tabs.Info:CreateParagraph("DevelopersScriptParagraph", {
+    Title = "Developers",
+    Content = "The people who developed this script is\nDev 1: valtroxqdev\nDev 2: t0x1c_.1"
+})
+
+Tabs.Main:CreateSection('Auto Farm')
+
+SaveManager:SetLibrary(Library)
+InterfaceManager:SetLibrary(Library)
+SaveManager:IgnoreThemeSettings()
+SaveManager:SetIgnoreIndexes{}
+InterfaceManager:SetFolder("MLRHub")
+SaveManager:SetFolder("MLRHub/Muscle-Legends")
+InterfaceManager:BuildInterfaceSection(Tabs.Settings)
+SaveManager:BuildConfigSection(Tabs.Settings)
+Window:SelectTab(1)
+SaveManager:LoadAutoloadConfig()
